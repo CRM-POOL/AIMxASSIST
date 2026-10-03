@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bitaim.carromaim.auto.AutoShootService;
+//import com.bitaim.carromaim.auto.AutoShootService;
 import com.bitaim.carromaim.capture.MediaProjectionRequestActivity;
 import com.bitaim.carromaim.capture.ScreenCaptureService;
 import com.bitaim.carromaim.overlay.FloatingOverlayService;
@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         Button btnCapture = findViewById(R.id.btn_capture);
         btnCapture.setOnClickListener(v -> requestCapture());
 
-        Button btnAccessibility = findViewById(R.id.btn_accessibility);
-        btnAccessibility.setOnClickListener(v -> openAccessibilitySettings());
+        /*Button btnAccessibility = findViewById(R.id.btn_accessibility);
+        btnAccessibility.setOnClickListener(v -> openAccessibilitySettings());*/
 
         updateStatus();
     }
@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void openAccessibilitySettings() {
+    /*private void openAccessibilitySettings() {
         startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-    }
+    }*/
 
     private boolean hasOverlayPermission() {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M
@@ -88,12 +88,18 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(i, REQ_OVERLAY);
     }
 
-    private void updateStatus() {
+   /* private void updateStatus() {
         boolean overlay  = FloatingOverlayService.INSTANCE != null;
         boolean capture  = ScreenCaptureService.INSTANCE != null;
         boolean autoplay = AutoShootService.isReady();
         tvStatus.setText("Overlay: " + (overlay ? "ON" : "OFF")
                 + "  |  Capture: " + (capture ? "ON" : "OFF")
                 + "  |  AutoPlay: " + (autoplay ? "ready" : "disabled"));
+    }*/
+    private void updateStatus() {
+    boolean overlay = FloatingOverlayService.INSTANCE != null;
+    boolean capture = ScreenCaptureService.INSTANCE != null;
+    tvStatus.setText("Overlay: " + (overlay ? "ON" : "OFF")
+            + "  |  Capture: " + (capture ? "ON" : "OFF"));
     }
 }
