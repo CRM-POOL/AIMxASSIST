@@ -8,6 +8,7 @@
     <!-- Foreground services: overlay + screen capture -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <!-- Wake lock keeps overlay alive while playing -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
